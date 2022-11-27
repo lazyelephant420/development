@@ -1,0 +1,80 @@
+[
+    {
+        "name": "Chinatown On Thayer",
+        "mylist": "true",
+        "image": "/images/chinatown.jpg",
+        "rating": "4.4"
+    },
+    {
+        "name": "Kabob and Curry",
+        "mylist": "false",
+        "image": "/images/kabob.jpg",
+        "rating": "4.3"
+    },
+    {
+        "name": "Andrea's Providence",
+        "mylist": "false",
+        "image": "/images/andreas.jpg",
+        "rating": "3.9"
+    },
+    {
+        "name": "East Side Pockets",
+        "mylist": "true",
+        "image": "/images/eastside.jpg",
+        "rating": "4.7"
+    },
+    {
+        "name": "Ganko Ittetsu Ramen",
+        "mylist": "true",
+        "image": "/images/ganko.jpg",
+        "rating": "4.3"
+    },
+    {
+        "name": "Shake Shack Thayer Street",
+        "mylist": "false",
+        "image": "/images/shake.webp",
+        "rating": "3.9"
+    },
+    {
+        "name": "Heng Thai & Rotisserie",
+        "mylist": "true",
+        "image": "/images/heng.jpg",
+        "rating": "4.6"
+    },
+    {
+        "name": "Chipotle Mexican Grill",
+        "mylist": "true",
+        "image": "/images/chipotle.jpg",
+        "rating": "3.8"
+    },
+    {
+        "name": "Yan's Cuisine",
+        "mylist": "false",
+        "image": "/images/yans.webp",
+        "rating": "3.6"
+    },
+    {
+        "name": "Den Den Korean Fried Chicken",
+        "mylist": "true",
+        "image": "/images/denden.jpg",
+        "rating": "4.6"
+    },
+    {
+        "name": "Flatbread Company",
+        "mylist": "false",
+        "image": "/images/flatbread.webp",
+        "rating": "4.6"
+    },
+    {
+        "name": "Insomnia Cookies",
+        "mylist": "true",
+        "image": "/images/insomnia.jpg",
+        "rating": "4.1"
+    },
+    {
+        "name": "Non-existant Shop with Bad Food",
+        "mylist": "true",
+        "image": "/images/bad.jpg",
+        "rating": "2.3"
+    }
+]
