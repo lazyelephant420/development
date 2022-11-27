@@ -19,7 +19,7 @@ const DrawerHeader = styled('div')(({theme}) => ({
 }))
 
 const Sidebar = ({isOpen, setIsOpen}) => {
-    const [newData, updateData] = useState(data)
+    const newData = data
     const [currView, updateView] = useState('All');
     const [currRating, updateRating] = useState('Show');
 
