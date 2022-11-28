@@ -25,7 +25,7 @@
     },
     {
         "name": "East Side Pockets",
-        "mylist": "true",
+        "mylist": "false",
         "image": "/images/eastside.jpg",
         "rating": "4.7",
         "latitude": "41.8296",
@@ -40,7 +40,7 @@
         "longitude": "-71.4002777"
     },
     {
-        "name": "Shake Shack Thayer Street",
+        "name": "Shake Shack",
         "mylist": "false",
         "image": "/images/shake.webp",
         "rating": "3.9",
@@ -72,7 +72,7 @@
         "longitude": "-71.3991"
     },
     {
-        "name": "Den Den Korean Fried Chicken",
+        "name": "DenDen Korean Fried Chicken",
         "mylist": "true",
         "image": "/images/denden.jpg",
         "rating": "4.6",

@@ -1,11 +1,14 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
+import {IconButton} from '@mui/material';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import Typography from '@mui/material/Typography';
+import Grid2 from '@mui/material/Unstable_Grid2';
+import DeleteIcon from '@mui/icons-material/Delete';
 import "./Restaurants.css";
 
 const Restaurants = (props) => {
@@ -48,17 +51,27 @@ const Restaurants = (props) => {
                                 image={item.image}
                                 alt="image"/>
                             <Box sx={{display: 'flex', flexDirection: 'column'}}>
-                                <CardContent sx={{flex: '1 0 auto'}}>
-                                    <Typography component='div' variant='h6'>
-                                        {index + 1}: {item.name}
-                                    </Typography>
-                                    <Typography component='div' variant='subtitle2' color="text.secondary">
-                                        {item.rating} stars
-                                    </Typography>
-                                    <Typography variant='subtitle2' color="text.secondary">
-                                        {isMine(item.mylist)}
-                                    </Typography>
-                                </CardContent>
+                                <Grid2 container spacing={2}>
+                                    <Grid2 xs={9.3}>
+                                        <CardContent sx={{flex: '1 0 auto'}}>
+                                            <Typography component='div' variant='h6'>
+                                                {index + 1}: {item.name}
+                                            </Typography>
+                                            <Typography component='div' variant='subtitle2' color="text.secondary">
+                                                {item.rating} stars
+                                            </Typography>
+                                            <Typography variant='subtitle2' color="text.secondary">
+                                                {isMine(item.mylist)}
+                                            </Typography>
+                                        </CardContent>
+                                    </Grid2>
+                                    {/* <Grid2 xs={2.7} sx={{alignItems:'center', justifyCenter:'center'}}>
+                                        <IconButton>
+                                            <DeleteIcon fontSize='small'/>
+                                        </IconButton>
+                                    </Grid2> */}
+                                </Grid2>
+                                
                             </Box>
                         </Card>
                     </div>

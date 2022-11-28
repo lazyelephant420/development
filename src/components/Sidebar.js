@@ -1,6 +1,6 @@
 import React from "react";
 import { Drawer, styled, Typography, IconButton} from '@mui/material';
-import { ChevronLeft } from '@mui/icons-material';
+import { KeyboardReturn } from '@mui/icons-material';
 
 import { useState } from 'react';
 import data from "../assets/data.json";
@@ -9,6 +9,7 @@ import FilterUser from "./FilterUser.js";
 import FilterRating from "./FilterRating.js";
 import Box from '@mui/material/Box';
 import Grid2 from '@mui/material/Unstable_Grid2';
+import SortRating from './SortRating.js';
 
 const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
@@ -19,69 +20,70 @@ const DrawerHeader = styled('div')(({theme}) => ({
 }))
 
 const Sidebar = ({isOpen, setIsOpen}) => {
-    const newData = data
+    const [newData, updateData] = useState(data)
     const [currView, updateView] = useState('All');
     const [currRating, updateRating] = useState('Show');
+    const [sortValue, updateSortValue] = useState("Highest");
 
     // Filters
     const filteredList = newData.filter((restaurant) => {
         if (currView === 'All') {
-        switch(currRating) {
-            case 'Show':
-                return restaurant
-            case 'Excellent':
-                return restaurant.rating >= 4.5
-            case 'Great':
-                return  restaurant.rating >= 4.0 && restaurant.rating < 4.5 
-            case 'Good':
-                return restaurant.rating >= 3.5 && restaurant.rating < 4.0  
-            case 'Fair':
-                return restaurant.rating >= 3.0 && restaurant.rating < 3.5 
-            case 'Meh':
-                return restaurant.rating >= 2.5 && restaurant.rating < 3.0
-            case 'Unsatisfactory':
-                return restaurant.rating >= 0 && restaurant.rating < 2.5
-            default:
-                return restaurant
-        }
+            switch(currRating) {
+                case 'Show':
+                    return restaurant
+                case 'Excellent':
+                    return restaurant.rating >= 4.5
+                case 'Great':
+                    return  restaurant.rating >= 4.0 && restaurant.rating < 4.5 
+                case 'Good':
+                    return restaurant.rating >= 3.5 && restaurant.rating < 4.0  
+                case 'Fair':
+                    return restaurant.rating >= 3.0 && restaurant.rating < 3.5 
+                case 'Meh':
+                    return restaurant.rating >= 2.5 && restaurant.rating < 3.0
+                case 'Unsatisfactory':
+                    return restaurant.rating >= 0 && restaurant.rating < 2.5
+                default:
+                    return restaurant
+            }
         } else if (currView === 'User') {
-        switch(currRating) {
-            case 'Show':
-                return restaurant && restaurant.mylist === "true"
-            case 'Excellent':
-                return restaurant.rating >= 4.5 && restaurant.mylist === "true"
-            case 'Great':
-                return  restaurant.rating >= 4.0 && restaurant.rating < 4.5 && restaurant.mylist === "true"
-            case 'Good':
-                return restaurant.rating >= 3.5 && restaurant.rating < 4.0 && restaurant.mylist === "true"
-            case 'Fair':
-                return restaurant.rating >= 3.0 && restaurant.rating < 3.5 && restaurant.mylist === "true"
-            case 'Meh':
-                return restaurant.rating >= 2.5 && restaurant.rating < 3.0 && restaurant.mylist === "true"
-            case 'Unsatisfactory':
-                return restaurant.rating >= 0 && restaurant.rating < 2.5 && restaurant.mylist === "true"
-            default:
-                return restaurant
+            switch(currRating) {
+                case 'Show':
+                    return restaurant && restaurant.mylist === "true"
+                case 'Excellent':
+                    return restaurant.rating >= 4.5 && restaurant.mylist === "true"
+                case 'Great':
+                    return  restaurant.rating >= 4.0 && restaurant.rating < 4.5 && restaurant.mylist === "true"
+                case 'Good':
+                    return restaurant.rating >= 3.5 && restaurant.rating < 4.0 && restaurant.mylist === "true"
+                case 'Fair':
+                    return restaurant.rating >= 3.0 && restaurant.rating < 3.5 && restaurant.mylist === "true"
+                case 'Meh':
+                    return restaurant.rating >= 2.5 && restaurant.rating < 3.0 && restaurant.mylist === "true"
+                case 'Unsatisfactory':
+                    return restaurant.rating >= 0 && restaurant.rating < 2.5 && restaurant.mylist === "true"
+                default:
+                    return restaurant
         }
         } else {
-        switch(currRating) {
-            case 'Show':
-                return restaurant && restaurant.mylist === "false"
-            case 'Excellent':
-                return restaurant.rating >= 4.5 && restaurant.mylist === "false"
-            case 'Great':
-                return  restaurant.rating >= 4.0 && restaurant.rating < 4.5 && restaurant.mylist === "false"
-            case 'Good':
-                return restaurant.rating >= 3.5 && restaurant.rating < 4.0 && restaurant.mylist === "false"
-            case 'Fair':
-                return restaurant.rating >= 3.0 && restaurant.rating < 3.5 && restaurant.mylist === "false"
-            case 'Meh':
-                return restaurant.rating >= 2.5 && restaurant.rating < 3.0 && restaurant.mylist === "false"
-            case 'Unsatisfactory':
-                return restaurant.rating >= 0 && restaurant.rating < 2.5 && restaurant.mylist === "false"
-            default:
-                return restaurant
-        }
+            switch(currRating) {
+                case 'Show':
+                    return restaurant && restaurant.mylist === "false"
+                case 'Excellent':
+                    return restaurant.rating >= 4.5 && restaurant.mylist === "false"
+                case 'Great':
+                    return  restaurant.rating >= 4.0 && restaurant.rating < 4.5 && restaurant.mylist === "false"
+                case 'Good':
+                    return restaurant.rating >= 3.5 && restaurant.rating < 4.0 && restaurant.mylist === "false"
+                case 'Fair':
+                    return restaurant.rating >= 3.0 && restaurant.rating < 3.5 && restaurant.mylist === "false"
+                case 'Meh':
+                    return restaurant.rating >= 2.5 && restaurant.rating < 3.0 && restaurant.mylist === "false"
+                case 'Unsatisfactory':
+                    return restaurant.rating >= 0 && restaurant.rating < 2.5 && restaurant.mylist === "false"
+                default:
+                    return restaurant
+            }
         }
     })
 
@@ -99,6 +101,26 @@ const Sidebar = ({isOpen, setIsOpen}) => {
         updateRating(new_rating)
     }
 
+    // method for sorting between ratings
+    // sorting ranges from: "Highest to Lowest" and "Lowest to Highest"
+    // refer to SortRating.js
+    const setCurrentSort = (new_sort) => {
+        updateSortValue(new_sort)
+    }
+
+    // Final sorted data based on all filters and sorts
+    const sortedData = filteredList.sort((a,b) => {
+        if (sortValue === "Highest") {
+            if (a.rating > b.rating) {
+                return -1;
+            }
+        } else {
+            if (a.rating < b.rating) {
+                return -1;
+            }
+        }
+    })
+
     return (
         <Drawer 
             variant='persistent' 
@@ -108,7 +130,7 @@ const Sidebar = ({isOpen, setIsOpen}) => {
             <DrawerHeader>
                 <Typography sx={{ml: 6, color: "#505050"}} component='div' variant='h4'>Restaurants</Typography>
                 <IconButton onClick={() => setIsOpen(false)}>
-                    <ChevronLeft fontSize='large'/>
+                    <KeyboardReturn fontSize='large'/>
                 </IconButton>
             </DrawerHeader>
             <Box sx={{width:300, p:2}}>
@@ -119,12 +141,14 @@ const Sidebar = ({isOpen, setIsOpen}) => {
                     <Grid2 xs={6}>
                         <FilterUser filterMethod={setCurrentView}></FilterUser>
                     </Grid2>
+                    <Grid2 xs={12}>
+                        <SortRating filterMethod={setCurrentSort}></SortRating>
+                    </Grid2>
                 </Grid2>
             </Box>
             <Box sx={{width: 300}}>
-                <Restaurants restaurantList={filteredList}></Restaurants>
+                <Restaurants restaurantList={sortedData}></Restaurants>
             </Box>
-
         </Drawer>
     );
 };

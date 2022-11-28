@@ -1,3 +1,22 @@
 .popup {
     width: 10000px;
 }
+
+.button {
+    width: 100px;
+    margin-left: 10px;
+    font-size: 15px;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    border: 2px solid #4CAF50;
+    background-color: white;
+}
+
+.button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* .button:active {
+    background-color: #6a4caf;
+} */

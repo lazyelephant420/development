@@ -14,7 +14,7 @@ const Topbar = (props) => {
 
     return (
         <Box sx={{flexGrow: 1}}>
-            <AppBar style={{background:'#F3ECE0'}} position="static">
+            <AppBar style={{background:'#F3ECE0', borderRadius: "20px"}} position="static">
                 <Toolbar>
                     <IconButton
                         size="large"

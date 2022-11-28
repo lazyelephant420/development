@@ -33,7 +33,7 @@ const FilterRating = (props) => {
                     <MenuItem value={"Unsatisfactory"}>0 - 2.5: Unsatisfactory</MenuItem>
                 </Select>
             </FormControl>
-    </div>
+        </div>
     );
 }
 
