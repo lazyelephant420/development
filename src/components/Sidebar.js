@@ -121,6 +121,8 @@ const Sidebar = ({isOpen, setIsOpen}) => {
         }
     })
 
+    const aggregatedStars = sortedData.reduce((sum, item) => sum + parseFloat(item.rating), 0)
+
     return (
         <Drawer 
             variant='persistent' 
@@ -144,8 +146,13 @@ const Sidebar = ({isOpen, setIsOpen}) => {
                     <Grid2 xs={12}>
                         <SortRating filterMethod={setCurrentSort}></SortRating>
                     </Grid2>
+                    <Grid2 xs={12}>
+                        Total Amount of Stars: {aggregatedStars}
+                    </Grid2>
                 </Grid2>
             </Box>
+            
+
             <Box sx={{width: 300}}>
                 <Restaurants restaurantList={sortedData}></Restaurants>
             </Box>
