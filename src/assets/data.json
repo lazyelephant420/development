@@ -2,7 +2,7 @@
     {
         "name": "Chinatown On Thayer",
         "mylist": "true",
-        "image": "/images/chinatown.jpg",
+        "image": "images/chinatown.jpg",
         "rating": "4.4",
         "latitude": "41.8295",
         "longitude": "-71.4007"
@@ -10,7 +10,7 @@
     {
         "name": "Kabob and Curry",
         "mylist": "false",
-        "image": "/images/kabob.jpg",
+        "image": "images/kabob.jpg",
         "rating": "4.3",
         "latitude": "41.8289",
         "longitude": "-71.4006"
@@ -18,7 +18,7 @@
     {
         "name": "Andrea's Providence",
         "mylist": "false",
-        "image": "/images/andreas.jpg",
+        "image": "images/andreas.jpg",
         "rating": "3.9",
         "latitude": "41.8291",
         "longitude": "-71.4009"
@@ -26,7 +26,7 @@
     {
         "name": "East Side Pockets",
         "mylist": "false",
-        "image": "/images/eastside.jpg",
+        "image": "images/eastside.jpg",
         "rating": "4.7",
         "latitude": "41.8296",
         "longitude": "-71.4009"
@@ -34,7 +34,7 @@
     {
         "name": "Ganko Ittetsu Ramen",
         "mylist": "true",
-        "image": "/images/ganko.jpg",
+        "image": "images/ganko.jpg",
         "rating": "4.3",
         "latitude": "41.8274967",
         "longitude": "-71.4002777"
@@ -42,7 +42,7 @@
     {
         "name": "Shake Shack",
         "mylist": "false",
-        "image": "/images/shake.webp",
+        "image": "images/shake.webp",
         "rating": "3.9",
         "latitude": "41.8285",
         "longitude": "-71.4005"
@@ -50,7 +50,7 @@
     {
         "name": "Heng Thai & Rotisserie",
         "mylist": "true",
-        "image": "/images/heng.jpg",
+        "image": "images/heng.jpg",
         "rating": "4.6",
         "latitude": "41.8278",
         "longitude": "-71.4012"
@@ -58,7 +58,7 @@
     {
         "name": "Chipotle Mexican Grill",
         "mylist": "true",
-        "image": "/images/chipotle.jpg",
+        "image": "images/chipotle.jpg",
         "rating": "3.8",
         "latitude": "41.827910",
         "longitude": "-71.400430"
@@ -66,7 +66,7 @@
     {
         "name": "Yan's Cuisine",
         "mylist": "false",
-        "image": "/images/yans.webp",
+        "image": "images/yans.webp",
         "rating": "3.6",
         "latitude": "41.8248",
         "longitude": "-71.3991"
@@ -74,7 +74,7 @@
     {
         "name": "DenDen Korean Fried Chicken",
         "mylist": "true",
-        "image": "/images/denden.jpg",
+        "image": "images/denden.jpg",
         "rating": "4.6",
         "latitude": "41.8283",
         "longitude": "-71.4003"
@@ -82,7 +82,7 @@
     {
         "name": "Flatbread Company",
         "mylist": "false",
-        "image": "/images/flatbread.webp",
+        "image": "images/flatbread.webp",
         "rating": "4.6",
         "latitude": "41.8297",
         "longitude": "-71.4003"
@@ -90,7 +90,7 @@
     {
         "name": "Insomnia Cookies",
         "mylist": "true",
-        "image": "/images/insomnia.jpg",
+        "image": "images/insomnia.jpg",
         "rating": "4.1",
         "latitude": "41.830450",
         "longitude": "-71.400780"
