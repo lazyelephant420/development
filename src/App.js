@@ -181,7 +181,7 @@ function App() {
                   <CardMedia
                       component="img"
                       sx={{width: 100, height: 150}}
-                      image="/images/Ben.jpg"
+                      image="images/Ben.jpg"
                       alt="image"/>
                   <Box sx={{display: 'flex', flexDirection: 'column'}}>
                       <CardContent sx={{flex: '1 0 auto'}}>
