@@ -1,18 +1,15 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import {IconButton} from '@mui/material';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import Typography from '@mui/material/Typography';
 import Grid2 from '@mui/material/Unstable_Grid2';
-import DeleteIcon from '@mui/icons-material/Delete';
 import "./Restaurants.css";
 
 const Restaurants = (props) => {
-
     // method for returning list
     const isMine = (boolean) => {
         if (boolean === 'true') {
@@ -65,13 +62,7 @@ const Restaurants = (props) => {
                                             </Typography>
                                         </CardContent>
                                     </Grid2>
-                                    {/* <Grid2 xs={2.7} sx={{alignItems:'center', justifyCenter:'center'}}>
-                                        <IconButton>
-                                            <DeleteIcon fontSize='small'/>
-                                        </IconButton>
-                                    </Grid2> */}
                                 </Grid2>
-                                
                             </Box>
                         </Card>
                     </div>

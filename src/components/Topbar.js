@@ -11,7 +11,7 @@ const Topbar = (props) => {
     const onClick = () => {
         props.filterMethod() // call the filter method in app.js class
     }
-
+    
     return (
         <Box sx={{flexGrow: 1}}>
             <AppBar style={{background:'#F3ECE0', borderRadius: "20px"}} position="static">

@@ -15,6 +15,7 @@ import Map, {
   GeolocateControl,
 } from "react-map-gl";
 import {Typography, CardContent, CardMedia, Card, Box, Button} from '@mui/material';
+import Grid2 from '@mui/material/Unstable_Grid2';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import PlaceIcon from '@mui/icons-material/Place';
@@ -24,33 +25,60 @@ import MuiAlert from '@mui/material/Alert';
 // Token for Mapbox
 const TOKEN = "pk.eyJ1IjoibmFub3RhcnQiLCJhIjoiY2xheXU3ejFtMGNtcTNubjVnYWVxbDZkayJ9.3eg1MzJ5WFlKLnIFhzqF7w"
 
-// Snackbar alert
+// Snackbar Alert
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-// App
+// App Return
 function App() {
 
   // for the sidebar
   const [isOpen, setIsOpen] = useState(false);
   const [popupInfo, setPopupInfo] = useState(null);
   const [lonelyMarker, updateLonelyMarker] = useState(false);
-  const [buttonText, updateButtonText] = useState("Add");
-  const [open, setOpen] = React.useState(false); //snackbar
+  const [benText, updateBenText] = useState("Not Documented Yet")
+  const [open, setOpen] = useState(false); //snackbar for open
+  const [close, setClose] = useState(false); //snackbar for closing
 
-  const handleClick = () => {
+  // Handle the "Add" click for the lonelyMarker
+  const handleAddClick = () => {
     setOpen(true);
-    updateButtonText("Added")
-  };
+    if (benText === "Not Documented Yet") {
+      updateBenText(
+        <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+        }}>
+            <PersonOutlineIcon sx={{mr:0.7}}/> 
+            <span>In User's List</span>
+        </div>  
+  )}};
 
-  const handleClose = (event, reason) => {
+  // Handle the "Close" click for the lonelyMarker
+  const handleDeleteClick = () => {
+    setClose(true);
+    updateBenText("Not Documented Yet")
+  }
+
+  // Snackbar method for Add
+  const handleClosingAdd = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
     setOpen(false);
   };
 
+  // Snackbar method for Delete
+  const handleClosingDelete = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setClose(false);
+  };
+
+  // All pins in the map
   const pins = data.map((restaurant, index) => (
       <Marker
         key={index}
@@ -62,11 +90,11 @@ function App() {
           setPopupInfo(restaurant);
         }}
       >
-        <PlaceIcon sx={{color: '#74afed', height: 50, width: 50}}></PlaceIcon>
+        <PlaceIcon sx={{strokeWidth: 1, stroke: "white", color: '#74afed', height: 50, width: 50}}></PlaceIcon>
       </Marker>
   ));
 
-  // method for returning list
+  // Method for returning user/friend list
   const isMine = (boolean) => {
     if (boolean === 'true') {
         return (
@@ -100,11 +128,15 @@ function App() {
 
   // JSX
   return (
-    
     <div className="body">
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+      <Snackbar open={open} autoHideDuration={1500} onClose={handleClosingAdd}>
+        <Alert onClose={handleClosingAdd} severity="success" sx={{ width: '100%' }}>
           Added to user's list.
+        </Alert>
+      </Snackbar>
+      <Snackbar open={close} autoHideDuration={1500} onClose={handleClosingDelete}>
+        <Alert onClose={handleClosingDelete} severity="error" sx={{ width: '100%' }}>
+          Deleted from user's list.
         </Alert>
       </Snackbar>
       <Topbar filterMethod={changeOpen}/>
@@ -113,7 +145,7 @@ function App() {
           initialViewState={{
             latitude: 41.829234,
             longitude: -71.401003,
-            zoom: 16.5,
+            zoom: 15,
           }}
           style={{width: "100%", height: 650, borderRadius: "20px"}} 
           mapboxAccessToken={TOKEN}
@@ -134,7 +166,7 @@ function App() {
               e.originalEvent.stopPropagation();
               updateLonelyMarker(true);
             }}>
-            <PlaceIcon sx={{color: '#ed7474', height: 50, width: 50}}></PlaceIcon>
+            <PlaceIcon sx={{strokeWidth: 1, stroke: "white", color: '#ed7474', height: 50, width: 50}}></PlaceIcon>
           </Marker>
 
           {lonelyMarker && (
@@ -160,18 +192,35 @@ function App() {
                               4.2 stars
                           </Typography>
                           <Typography variant='subtitle2' color="text.secondary">
-                              Not documented
+                              {benText}
                           </Typography>
                       </CardContent>
-                      <Button sx={{width: 100, height: 25, ml: 2, fontSize: 15, borderRadius: "8px", 
-                                   transitionDuration: "0.4s", border: "2px solid #4CAF50", backgroundColor: "white",
-                                   "&:hover": {
-                                    backgroundColor: "#4CAF50",
-                                    color: "white"
-                                    }}} 
-                              onClick={handleClick}>
-                              {buttonText}
-                       </Button>
+                      <Grid2 container spacing={1}>
+                        <Grid2 xs={6}>
+                          <Button className="add" sx={{width: 80, height: 25, ml: 2, fontSize: 15, borderRadius: "7px", 
+                                    transitionDuration: "0.4s", border: "2px solid #4CAF50", backgroundColor: "white",
+                                    color: "black",
+                                    '&:hover': {
+                                      backgroundColor: '#4CAF50',
+                                      color: 'white',
+                                  }}} 
+                                onClick={handleAddClick}>
+                                Add
+                          </Button>
+                        </Grid2>
+                        <Grid2 xs={6}>
+                          <Button className="delete" sx={{width: 80, height: 25, ml: 1, fontSize: 15, borderRadius: "7px", 
+                                    transitionDuration: "0.4s", border: "2px solid #fc2803", backgroundColor: "white",
+                                    color: "black",
+                                    '&:hover': {
+                                      backgroundColor: '#fc2803',
+                                      color: 'white',
+                                    }}}
+                                onClick={handleDeleteClick}>
+                                Delete
+                          </Button>
+                        </Grid2>
+                      </Grid2>
                   </Box>
                 </Card>
               </Popup>
@@ -211,7 +260,6 @@ function App() {
           )}
         </Map>
       </Box>
-      
       <Sidebar {...{isOpen, setIsOpen}}/>
     </div>
   )
