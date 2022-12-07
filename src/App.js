@@ -40,9 +40,11 @@ function App() {
   const [benText, updateBenText] = useState("Not Documented Yet")
   const [open, setOpen] = useState(false); //snackbar for open
   const [close, setClose] = useState(false); //snackbar for closing
+  const [inUserList, updateInUserList] = useState(false);
 
   // Handle the "Add" click for the lonelyMarker
   const handleAddClick = () => {
+    updateInUserList(true)
     setOpen(true);
     if (benText === "Not Documented Yet") {
       updateBenText(
@@ -59,6 +61,7 @@ function App() {
   // Handle the "Close" click for the lonelyMarker
   const handleDeleteClick = () => {
     setClose(true);
+    updateInUserList(false);
     updateBenText("Not Documented Yet")
   }
 
@@ -260,7 +263,7 @@ function App() {
           )}
         </Map>
       </Box>
-      <Sidebar {...{isOpen, setIsOpen}}/>
+      <Sidebar {...{isOpen, setIsOpen, inUserList}}/>
     </div>
   )
 }
