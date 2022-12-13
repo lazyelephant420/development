@@ -41,7 +41,6 @@ function App() {
   const [open, setOpen] = useState(false); //snackbar for open
   const [close, setClose] = useState(false); //snackbar for closing
   const [inUserList, updateInUserList] = useState(false);
-  const [value, setValue] = useState(0);
 
   // Handle the "Add" click for the lonelyMarker
   const handleAddClick = () => {
@@ -132,7 +131,7 @@ function App() {
 
   // JSX
   return (
-    <div className="body">
+    <body>
       <Snackbar open={open} autoHideDuration={1500} onClose={handleClosingAdd}>
         <Alert onClose={handleClosingAdd} severity="success" sx={{ width: '100%' }}>
           Added to user's list.
@@ -265,7 +264,7 @@ function App() {
         </Map>
       </Box>
       <Sidebar {...{isOpen, setIsOpen, inUserList}}/>
-    </div>
+    </body>
   )
 }
 

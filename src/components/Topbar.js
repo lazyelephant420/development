@@ -32,19 +32,19 @@ const Topbar = (props) => {
     // comment
     return (
         <Box sx={{flexGrow: 1}}>
-            <AppBar style={{background:'#F3ECE0', borderRadius: "20px"}} position="static">
+            <AppBar style={{background:'#F8EDE3', borderRadius: "8px"}} position="static">
                 <Toolbar>
                     <IconButton
                         size="large"
                         edge="start"
                         color="black"
                         aria-label="menu"
-                        sx={{mr:2}}
+                        sx={{mr:2, color:"black"}}
                         onClick={onClick}
                     >
                       <MenuIcon/>
                     </IconButton>
-                    <Typography variant="h6" component="div" sx={{flexGrow: 1, color: "#505050"}}>
+                    <Typography variant="h6" component="div" sx={{flexGrow: 1, color: "black"}}>
                         Restaurants on Thayer
                     </Typography>
                     <Button

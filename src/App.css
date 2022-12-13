@@ -4,5 +4,8 @@
 
 .add:hover {
     background-color: #4CAF50;
-    
+}
+
+body {
+    background-color: white;
 }

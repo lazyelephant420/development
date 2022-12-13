@@ -130,9 +130,9 @@ const Sidebar = ({isOpen, setIsOpen}) => {
             open={isOpen}
         >
             <DrawerHeader>
-                <Typography sx={{ml: 6, color: "#505050"}} component='div' variant='h4'>Restaurants</Typography>
+                <Typography sx={{ml: 6, color: "black"}} component='div' variant='h4'>Restaurants</Typography>
                 <IconButton onClick={() => setIsOpen(false)}>
-                    <KeyboardReturn fontSize='large'/>
+                    <KeyboardReturn fontSize='large' sx={{color:"black"}}/>
                 </IconButton>
             </DrawerHeader>
             <Box sx={{width:300, p:2}}>
@@ -157,6 +157,7 @@ const Sidebar = ({isOpen, setIsOpen}) => {
                 <Restaurants restaurantList={sortedData}></Restaurants>
             </Box>
         </Drawer>
+        
     );
 };
 
