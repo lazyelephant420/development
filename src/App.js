@@ -41,6 +41,7 @@ function App() {
   const [open, setOpen] = useState(false); //snackbar for open
   const [close, setClose] = useState(false); //snackbar for closing
   const [inUserList, updateInUserList] = useState(false);
+  const [value, setValue] = useState(0);
 
   // Handle the "Add" click for the lonelyMarker
   const handleAddClick = () => {

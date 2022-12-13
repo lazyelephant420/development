@@ -19,19 +19,8 @@ const DrawerHeader = styled('div')(({theme}) => ({
     ...theme.mixins.toolbar,
 }))
 
-const benJson = [
-    {
-        "name": "Ben And Jerry",
-        "mylist": "true",
-        "image": "images/Ben.jpg",
-        "rating": "4.2",
-        "latitude": "0",
-        "longitude": "0"
-    }
-]
-
-const Sidebar = ({isOpen, setIsOpen, inUserList}) => {
-    const [newData, updateData] = useState(data)
+const Sidebar = ({isOpen, setIsOpen}) => {
+    const newData = data;
     const [currView, updateView] = useState('All');
     const [currRating, updateRating] = useState('Show');
     const [sortValue, updateSortValue] = useState("Highest");
