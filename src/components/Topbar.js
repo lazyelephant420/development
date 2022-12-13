@@ -21,7 +21,7 @@ const Topbar = (props) => {
         transform: 'translate(-50%, -50%)',
         width: 400,
         bgcolor: 'background.paper',
-        border: '2px solid #F8EDE3',
+        borderRadius: "8px",
         boxShadow: 24,
         p: 4,
     };
@@ -81,10 +81,13 @@ const Topbar = (props) => {
                         <b>Research/Feedback: </b>I interviewed my peers from CMU and Brown University on their frustrations of looking for new restaurants. This demo serves to answer those questions by including personal recommendations.
                         </p>
                         <p>
-                        <b>Design Iterations: </b>Being a demo, the site's pins are all static. I created a map system where users can view restaurants their friends have been to. The red pin marks an unknown restaurant.
+                        <b>Design Iterations: </b>I created a map system where users can view restaurants their friends have been to. The red pin marks an unknown restaurant.
                         </p>
                         <p>
-                        <b>Skills Learned: </b>Figma, React, Material UI, aggregation
+                        <b>Features: </b>Zoom in/out, find location, full screen, compass, navigation
+                        </p>
+                        <p>
+                        <b>Skills Learned: </b>Figma, React, Material UI, Aggregation, MapBox API
                         </p>
                     </Typography>
                 </Box>
